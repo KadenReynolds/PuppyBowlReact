@@ -1,10 +1,9 @@
 import {useState} from 'react'
+import empty from '../assets/empty-trash.png'
+import full from '../assets/full-trash.png'
 
 export default function PuppyList({puppies, setPuppies}){
-  const [deleteImage, setDeleteImage] = useState("blockwork\block_29\Puppy-Bowl-React\src\Images\icons8-empty-trash-50.png")
 
-  let deleteIcon = "blockwork\block_29\Puppy-Bowl-React\src\Images\icons8-empty-trash-50.png"
-  console.log(typeof(deleteIcon))
 
   return (
     <>
@@ -19,8 +18,10 @@ export default function PuppyList({puppies, setPuppies}){
               <img src={puppy.imageUrl} alt={puppy.name} />
               <br />
               <br />
-              <button>See Details</button>
-              <button className="deleteBtn" onMouseOver={() => {}}><img src={deleteIcon} alt="Delete" /></button>
+              <button class='seeDetailsBtn'>See Details</button>
+              <button className="deleteBtn">
+                Delete
+              </button>
             </div>
           ) 
         })}

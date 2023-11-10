@@ -21,7 +21,6 @@ function App() {
 
   return (
     <>
-
       <div>
         <h1>Puppy Bowl</h1>
         <Routes>

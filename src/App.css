@@ -15,28 +15,51 @@ h1{
   flex-wrap: wrap;
   gap: 2svw;
   padding: 20px 35px;
-  background-color: rgba(59, 59, 59, 0.26);
-  border-radius: 5px;
+  background-color: rgba(59, 59, 59, 0.4);
+  border-radius: 0px 5px 5px 5px;
 }
 
 .puppyDiv{
   width: 20svw;
   padding: 20px 0px;
-  background-color: rgb(27, 27, 27);
-  border-radius: 4px;
+  background-color: rgb(34, 34, 34);
+  border-radius: 10px;
 }
 
 .puppyDiv > img{
   width: 60%;
 }
 
-.deleteBtn > div{
-  width: 10px;
-  aspect-ratio: 1;
-  background-image: url(\Images\icons8-empty-trash-50.png);
-  background-size: cover;
+.seeDetailsBtn{
+  background-color: rgb(44, 44, 44);
+}
+
+.seeDetailsBtn:hover{
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgb(255, 255, 255);
+  border-color: white;
+}
+
+.deleteBtn{
+  margin-left: 1svw;
+  background-color: rgb(44, 44, 44);
+}
+
+.deleteBtn:hover{
+  /* text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-decoration-color: red; */
+  color: red;
+  border-color: rgb(255, 0, 0);
 }
 
 #rosterHeader{
+  padding: 10px 0px;
+  margin-bottom: 0px;
+  width: 10svw;
   font-weight: bolder;
+  background-color: rgb(32, 32, 32);
+  color: white;
+  border-radius: 5px 5px 0px 0px;
 }
