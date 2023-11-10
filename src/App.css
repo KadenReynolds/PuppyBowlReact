@@ -30,6 +30,13 @@ h1{
   width: 60%;
 }
 
+.deleteBtn > div{
+  width: 10px;
+  aspect-ratio: 1;
+  background-image: url(\Images\icons8-empty-trash-50.png);
+  background-size: cover;
+}
+
 #rosterHeader{
   font-weight: bolder;
 }
