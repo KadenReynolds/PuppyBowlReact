@@ -1,13 +1,15 @@
 import {useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 import empty from '../assets/empty-trash.png'
 import full from '../assets/full-trash.png'
 
 export default function PuppyList({puppies, setPuppies}){
-
+  let navigate = useNavigate()
+  console.log(typeof(puppies))
 
   return (
     <>
-      <h2 id="rosterHeader">Puppies Roster</h2>
+      <h2 className="sectionHeader">Puppies Roster</h2>
       <div className="puppyGridDiv">
         {puppies.map((puppy) => {
           return(
@@ -18,7 +20,10 @@ export default function PuppyList({puppies, setPuppies}){
               <img src={puppy.imageUrl} alt={puppy.name} />
               <br />
               <br />
-              <button class='seeDetailsBtn'>See Details</button>
+              <button className='seeDetailsBtn' onClick={() => {
+                scrollTo(top)
+                navigate(`/puppyRoster/${puppies.indexOf(puppy)}`)
+                }}>See Details</button>
               <button className="deleteBtn">
                 Delete
               </button>

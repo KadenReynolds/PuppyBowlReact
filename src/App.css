@@ -9,11 +9,31 @@ h1{
   font-weight: lighter;
 }
 
+nav{
+  margin-top: 0;
+  position: fixed;
+  padding: 20px 10px;
+  background-color: rgba(10, 10, 10, .5);
+  border-radius: 5px;
+}
+
+nav > * {
+  margin: 0px 40px;
+  padding: 10px 10px;
+  color: white;
+}
+
+nav > *:hover{
+  border: 1px solid blue;
+  border-radius: 5px;
+}
+
 .puppyGridDiv{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 2svw;
+  min-width: 30svw;
   padding: 20px 35px;
   background-color: rgba(59, 59, 59, 0.4);
   border-radius: 0px 5px 5px 5px;
@@ -32,34 +52,65 @@ h1{
 
 .seeDetailsBtn{
   background-color: rgb(44, 44, 44);
+  font-weight: 600;
 }
 
 .seeDetailsBtn:hover{
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-decoration-color: rgb(255, 255, 255);
   border-color: white;
+  font-weight: 800;
 }
 
 .deleteBtn{
   margin-left: 1svw;
   background-color: rgb(44, 44, 44);
+  font-weight: 600;
 }
 
 .deleteBtn:hover{
   /* text-decoration: underline;
   text-decoration-thickness: 3px;
   text-decoration-color: red; */
+  font-weight: 800;
   color: red;
   border-color: rgb(255, 0, 0);
 }
 
-#rosterHeader{
+.sectionHeader{
   padding: 10px 0px;
+  margin-top: 2svw;
   margin-bottom: 0px;
   width: 10svw;
   font-weight: bolder;
   background-color: rgb(32, 32, 32);
   color: white;
   border-radius: 5px 5px 0px 0px;
+}
+
+.singlePupHeaders{
+  font-size: 2em;
+}
+
+form{
+  margin-top: 5svw;
+}
+
+form > label{
+  font-size: 1.25em;
+  text-align: left;
+}
+
+form > label > *{
+  text-align: center;
+  width: 20svw;
+  height: 1svw;
+  font-weight: bolder;
+  font-style: italic;
+}
+
+.puppyFormDiv{
+  width: 60svw;
+  aspect-ratio: 2;
+  padding: 20px 35px;
+  background-color: rgba(59, 59, 59, 0.4);
+  border-radius: 0px 5px 5px 5px;
 }
