@@ -1,16 +1,34 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import empty from '../assets/empty-trash.png'
 import full from '../assets/full-trash.png'
 
+const API_URL = "https://fsa-puppy-bowl.herokuapp.com/api/2109-FTB-ET-WEB-FT/players"
+
 export default function PuppyList({puppies, setPuppies}){
+  const [id, setId] = useState("")
+  const [error, setError] = useState(null)
+
   let navigate = useNavigate()
-  console.log(typeof(puppies))
+  
+  async function deletePuppy(event){
+    event.preventDefault()
+    try {
+      let response = await fetch(`${API_URL}/${id}`, {
+        method:"DELETE",
+      })
+      let result = await response.json()
+      window.location.reload()
+    } catch (error) {
+      setError(error.message)
+    }
+  }
 
   return (
     <>
       <h2 className="sectionHeader">Puppies Roster</h2>
       <div className="puppyGridDiv">
+        {error && <p>{error}</p>}
         {puppies.map((puppy) => {
           return(
             <div className="puppyDiv" key={puppy.id}>
@@ -24,7 +42,7 @@ export default function PuppyList({puppies, setPuppies}){
                 scrollTo(top)
                 navigate(`/puppyRoster/${puppies.indexOf(puppy)}`)
                 }}>See Details</button>
-              <button className="deleteBtn">
+              <button className="deleteBtn" onMouseOver={() => {setId(puppy.id)}} onClick={deletePuppy}>
                 Delete
               </button>
             </div>
