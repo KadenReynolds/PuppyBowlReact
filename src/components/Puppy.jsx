@@ -10,7 +10,9 @@ export default function Puppy({puppies}){
         <div>
           <h2 className="singlePupHeaders">{puppies[puppyIndex].name}</h2>
           <h2 className="singlePupHeaders">{puppies[puppyIndex].breed}</h2>
-          <img src={puppies[puppyIndex].imageUrl} alt={puppies[puppyIndex].name} />
+          <h3>Team Id: {puppies[puppyIndex].teamId}</h3>
+          <h3>Status: {puppies[puppyIndex].status}</h3>
+          <img id="singlePupImg" src={puppies[puppyIndex].imageUrl} alt={puppies[puppyIndex].name} />
         </div>
       :
           <p>Please choose valid ID</p>

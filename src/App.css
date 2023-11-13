@@ -90,6 +90,10 @@ nav > *:hover{
   font-size: 2em;
 }
 
+#singlePupImg{
+  width: 50%;
+}
+
 form{
   margin-top: 5svw;
 }
