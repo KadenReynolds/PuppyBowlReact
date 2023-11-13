@@ -6,7 +6,7 @@ export default function Puppy({puppies}){
   const [error, setError] = useState(null)
 
   let {puppyIndex} = useParams()
-  console.log(puppies[puppyIndex])
+  let puppy = puppies[puppyIndex]
 
   // async function deletePuppy(event){
   //   event.preventDefault()
@@ -21,22 +21,28 @@ export default function Puppy({puppies}){
   //   }
   // }
 
+  console.log(puppy)
+
   return(
     <>
       {puppyIndex < puppies.length && puppyIndex >= 0 ?
-        <div>
-          <h2 className="singlePupHeaders">{puppies[puppyIndex].name}</h2>
-          <h2 className="singlePupHeaders">{puppies[puppyIndex].breed}</h2>
-          <h3>Team : Player</h3>
-          <h3>#{puppies[puppyIndex].teamId} : #{puppies[puppyIndex].id}</h3>
-          <h4>Status: {puppies[puppyIndex].status}</h4>
-          <img id="singlePupImg" src={puppies[puppyIndex].imageUrl} alt={puppies[puppyIndex].name} />
-          <br />
-          <br />
-          <button className="singlePupDelete">
-                  X
-          </button>
-        </div>
+        <>
+          <button className="nextPrevBtns">{"<"}</button>
+          <button className="nextPrevBtns">{">"}</button>
+          <div>
+            <h2 className="singlePupHeaders">{puppy.name}</h2>
+            <h2 className="singlePupHeaders">{puppy.breed}</h2>
+            <h3>Team : Player</h3>
+            <h3>#{puppy.teamId} : #{puppy.id}</h3>
+            <h4>Status: {puppy.status}</h4>
+            <img id="singlePupImg" src={puppy.imageUrl} alt={puppy.name} />
+            <br />
+            <br />
+            <button className="singlePupDelete">
+                    X
+            </button>
+          </div>
+        </>
       :
           <p>Please choose valid ID</p>
     }

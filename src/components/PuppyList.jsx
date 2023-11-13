@@ -35,7 +35,7 @@ export default function PuppyList({puppies, setPuppies, fetchPuppies}){
               <div className="puppyDiv" key={puppy.id}>
                 <h2>{puppy.name}</h2>
                 <h3>{puppy.breed}</h3>
-                <h5>Status: {puppy.status}</h5>
+                <h5><i>Status: {puppy.status}</i></h5>
                 <h6># {puppy.id}</h6>
                 <img src={puppy.imageUrl} alt={puppy.name} />
                 <br />

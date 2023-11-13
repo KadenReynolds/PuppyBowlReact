@@ -2,6 +2,7 @@ import {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const API_URL = "https://fsa-puppy-bowl.herokuapp.com/api/2109-FTB-ET-WEB-FT/players"
+let puppySuccess = "Add Puppy"
 
 export default function AddPuppyForm({fetchPuppies}){
   const [name, setName] = useState("")
@@ -25,9 +26,12 @@ export default function AddPuppyForm({fetchPuppies}){
       })
       let result = await response.json()
       console.log(result)
+      puppySuccess = "Thank You!"
       fetchPuppies()
     } catch (error) {
-      setError(error.message)
+      // setError(error.message)
+      puppySuccess = "Uh Oh!" 
+      setError(`[Error: ${error.message}]`)
     }
 
     setName("")
@@ -40,7 +44,7 @@ export default function AddPuppyForm({fetchPuppies}){
     <>
       <h2 className="sectionHeader">Puppy Form</h2>
       <div className="puppyFormDiv">
-        <h1>Add Puppy</h1>
+        <h1>{puppySuccess}</h1>
         {error && <p>{error}</p>}
         <form action="" onSubmit={handleSubmit}>
           <label>

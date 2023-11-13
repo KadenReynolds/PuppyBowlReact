@@ -36,7 +36,7 @@ function App() {
       <div>
         <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path='/puppyRoster' element={<PuppyList puppies={puppies} setPuppies={setPuppies}/>} fetchPuppies={fetchPuppies}/>
+          <Route path='/puppyRoster' element={<PuppyList puppies={puppies} setPuppies={setPuppies} fetchPuppies={fetchPuppies}/>}/>
           <Route path='/puppyRoster/:puppyIndex' element={<Puppy puppies={puppies}/>}/>
           <Route path='/puppyForm' element={<AddPuppyForm fetchPuppies={fetchPuppies}/>}/>
         </Routes>
