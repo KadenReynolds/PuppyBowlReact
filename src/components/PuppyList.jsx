@@ -5,7 +5,7 @@ import full from '../assets/full-trash.png'
 
 const API_URL = "https://fsa-puppy-bowl.herokuapp.com/api/2109-FTB-ET-WEB-FT/players"
 
-export default function PuppyList({puppies, setPuppies}){
+export default function PuppyList({puppies, setPuppies, fetchPuppies}){
   const [id, setId] = useState("")
   const [error, setError] = useState(null)
 
@@ -18,7 +18,7 @@ export default function PuppyList({puppies, setPuppies}){
         method:"DELETE",
       })
       let result = await response.json()
-      window.location.reload()
+      fetchPuppies()
     } catch (error) {
       setError(error.message)
     }
@@ -29,25 +29,30 @@ export default function PuppyList({puppies, setPuppies}){
       <h2 className="sectionHeader">Puppies Roster</h2>
       <div className="puppyGridDiv">
         {error && <p>{error}</p>}
-        {puppies.map((puppy) => {
-          return(
-            <div className="puppyDiv" key={puppy.id}>
-              <h2>{puppy.name}</h2>
-              <h3>{puppy.breed}</h3>
-              <h5>Status: {puppy.status}</h5>
-              <img src={puppy.imageUrl} alt={puppy.name} />
-              <br />
-              <br />
-              <button className='seeDetailsBtn' onClick={() => {
-                scrollTo(top)
-                navigate(`/puppyRoster/${puppies.indexOf(puppy)}`)
-                }}>See Details</button>
-              <button className="deleteBtn" onMouseOver={() => {setId(puppy.id)}} onClick={deletePuppy}>
-                Delete
-              </button>
-            </div>
-          ) 
-        })}
+        {puppies.length ?
+          puppies.map((puppy) => {
+            return(
+              <div className="puppyDiv" key={puppy.id}>
+                <h2>{puppy.name}</h2>
+                <h3>{puppy.breed}</h3>
+                <h5>Status: {puppy.status}</h5>
+                <h6># {puppy.id}</h6>
+                <img src={puppy.imageUrl} alt={puppy.name} />
+                <br />
+                <br />
+                <button className='seeDetailsBtn' onClick={() => {
+                  scrollTo(top)
+                  navigate(`/puppyRoster/${puppies.indexOf(puppy)}`)
+                  }}>See Details</button>
+                <button className="deleteBtn" onMouseOver={() => {setId(puppy.id)}} onClick={deletePuppy}>
+                  Delete
+                </button>
+              </div>
+            ) 
+        })
+        :
+        <h2>Loading...</h2>
+      }
       </div>
     </>
   )

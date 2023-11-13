@@ -12,15 +12,16 @@ function App() {
   const [puppies, setPuppies] = useState([])
 
   useEffect(() => {
-    async function fetchPuppies(){
-      let response = await fetch(`${API_URL}`)
-      let result = await response.json()
-
-      console.log(result.data.players)
-      setPuppies(result.data.players)
-    }
     fetchPuppies()
   }, [])
+  
+  async function fetchPuppies(){
+    let response = await fetch(`${API_URL}`)
+    let result = await response.json()
+
+    console.log(result.data.players)
+    setPuppies(result.data.players)
+  }
 
   return (
     <>
@@ -35,9 +36,9 @@ function App() {
       <div>
         <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path='/puppyRoster' element={<PuppyList puppies={puppies} setPuppies={setPuppies}/>}/>
+          <Route path='/puppyRoster' element={<PuppyList puppies={puppies} setPuppies={setPuppies}/>} fetchPuppies={fetchPuppies}/>
           <Route path='/puppyRoster/:puppyIndex' element={<Puppy puppies={puppies}/>}/>
-          <Route path='/puppyForm' element={<AddPuppyForm/>}/>
+          <Route path='/puppyForm' element={<AddPuppyForm fetchPuppies={fetchPuppies}/>}/>
         </Routes>
       </div>
     </>

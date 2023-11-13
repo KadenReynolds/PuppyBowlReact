@@ -1,3 +1,4 @@
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -94,6 +95,13 @@ nav > *:hover{
   width: 50%;
 }
 
+.singlePupDelete:hover{
+  font-weight: bolder;
+  color: rgb(200, 0, 0);
+  border: 2px solid ;
+  border-color: rgb(150, 0, 0);
+}
+
 form{
   margin-top: 5svw;
 }
@@ -101,6 +109,7 @@ form{
 form > label{
   font-size: 1.25em;
   text-align: left;
+  font-weight: lighter;
 }
 
 form > label > *{
@@ -109,6 +118,8 @@ form > label > *{
   height: 1svw;
   font-weight: bolder;
   font-style: italic;
+  border-radius: 3px;
+  border: 2px solid grey;
 }
 
 .puppyFormDiv{
@@ -118,3 +129,4 @@ form > label > *{
   background-color: rgba(59, 59, 59, 0.4);
   border-radius: 0px 5px 5px 5px;
 }
+

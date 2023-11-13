@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 const API_URL = "https://fsa-puppy-bowl.herokuapp.com/api/2109-FTB-ET-WEB-FT/players"
 
-export default function AddPuppyForm(){
+export default function AddPuppyForm({fetchPuppies}){
   const [name, setName] = useState("")
   const [breed, setBreed] = useState("")
   const [imageUrl, setImageUrl] = useState("")
@@ -25,10 +25,14 @@ export default function AddPuppyForm(){
       })
       let result = await response.json()
       console.log(result)
-      window.location.reload()
+      fetchPuppies()
     } catch (error) {
       setError(error.message)
     }
+
+    setName("")
+    setBreed("")
+    setImageUrl("")
   }
 
 
@@ -36,19 +40,20 @@ export default function AddPuppyForm(){
     <>
       <h2 className="sectionHeader">Puppy Form</h2>
       <div className="puppyFormDiv">
+        <h1>Add Puppy</h1>
         {error && <p>{error}</p>}
         <form action="" onSubmit={handleSubmit}>
           <label>
             Name:{" "}
             <br />
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)}/>  
+            <input type="text" required value={name} onChange={(e) => setName(e.target.value)}/>  
           </label>
           <br />
           <br />
           <label>
             Breed:{" "}
             <br />
-            <input type="text" value={breed} onChange={(e) => setBreed(e.target.value)}/>  
+            <input type="text" required value={breed} onChange={(e) => setBreed(e.target.value)}/>  
           </label>
           <br />
           <br />
@@ -57,6 +62,7 @@ export default function AddPuppyForm(){
             <br />
             <input type="text" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)}/>  
           </label>
+          <br />
           <br />
           <br />
           <button>Add Pup</button>
