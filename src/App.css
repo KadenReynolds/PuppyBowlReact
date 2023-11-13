@@ -46,13 +46,14 @@ nav > *:hover{
 .puppyDiv{
   width: 20svw;
   padding: 20px 0px;
-  background-color: rgb(34, 34, 34);
+  background-color: rgba(1, 1, 24, 0.3);
   border-radius: 10px;
 }
 
 .puppyDiv > img{
   width: 60%;
   min-height: 50%;
+  border-radius: 3px;
 }
 
 .puppyDiv > h3{
@@ -60,7 +61,7 @@ nav > *:hover{
 }
 
 .seeDetailsBtn{
-  background-color: rgb(44, 44, 44);
+  background-color: rgb(2, 2, 56);
   font-weight: 600;
 }
 
@@ -71,7 +72,7 @@ nav > *:hover{
 
 .deleteBtn{
   margin-left: 1svw;
-  background-color: rgb(44, 44, 44);
+  background-color: rgb(2, 2, 56);
   font-weight: 600;
 }
 
@@ -103,6 +104,25 @@ nav > *:hover{
   width: 50%;
 }
 
+#singlePupDiv{
+  position: relative;
+  width: 30svw;
+  margin: 20px auto;
+  padding-top: 5px;
+  background-color: rgba(1, 1, 24, 0.3);
+  border-radius: 5px;
+}
+
+#singlePupDiv > img {
+  border-radius: 3px;
+}
+
+.singlePupDelete{
+  position: absolute;
+  top: 30px;
+  right: 3svw;
+}
+
 .singlePupDelete:hover{
   font-weight: bolder;
   color: rgb(200, 0, 0);
@@ -111,11 +131,11 @@ nav > *:hover{
 }
 
 .nextPrevBtns{
-  margin: 0px 10svw;
+  margin: 0px 8svw;
 }
 
 form{
-  margin-top: 5svw;
+  margin-top: 3.5svw;
 }
 
 form > label{
@@ -132,6 +152,13 @@ form > label > *{
   font-style: italic;
   border-radius: 3px;
   border: 2px solid grey;
+}
+
+#statusMessage{
+  margin: 5px auto;
+  margin-bottom: 0px;
+  padding-bottom: 5px;
+  border: none;
 }
 
 .puppyFormDiv{

@@ -7,6 +7,7 @@ let puppySuccess = "Add Puppy"
 export default function AddPuppyForm({fetchPuppies}){
   const [name, setName] = useState("")
   const [breed, setBreed] = useState("")
+  const [status, setStatus] = useState("bench")
   const [imageUrl, setImageUrl] = useState("")
   const [error, setError] = useState(null)
 
@@ -19,15 +20,17 @@ export default function AddPuppyForm({fetchPuppies}){
         method: "POST",
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify({
-          name:name,
-          breed:breed,
-          imageUrl:imageUrl,
+          name,
+          breed,
+          status,
+          imageUrl,
         })
       })
       let result = await response.json()
       console.log(result)
       puppySuccess = "Thank You!"
       fetchPuppies()
+      navigate('/puppyRoster')
     } catch (error) {
       // setError(error.message)
       puppySuccess = "Uh Oh!" 
@@ -58,6 +61,14 @@ export default function AddPuppyForm({fetchPuppies}){
             Breed:{" "}
             <br />
             <input type="text" required value={breed} onChange={(e) => setBreed(e.target.value)}/>  
+          </label>
+          <br />
+          <br />
+          <label>
+            Status (field/bench): 
+            <br />
+            <input type="text" required value={status} onChange={(e) => setStatus(e.target.value)}/>
+            {status === 'field' || status === 'bench' ? <></> : <h5 id='statusMessage'>Status must be 'bench' or 'field'</h5>}
           </label>
           <br />
           <br />
