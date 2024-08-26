@@ -27,9 +27,9 @@ function App() {
     <>
       <h1>Puppy Bowl</h1>
       <nav>
-        <Link to="/">Home</Link>
-        <Link to="/puppyRoster">Roster</Link>
-        <Link to="/puppyForm">Add Puppy</Link>
+        <Link to="/" className='navLinks'>Home</Link>
+        <Link to="/puppyRoster" className='navLinks'>Roster</Link>
+        <Link to="/puppyForm" className='navLinks'>Add Puppy</Link>
       </nav>
       <br />
       <br />

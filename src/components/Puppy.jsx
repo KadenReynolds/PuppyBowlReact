@@ -1,14 +1,16 @@
 import { useParams, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import empty from '../assets/empty-trash.png'
 
 export default function Puppy({puppies, fetchPuppies}){
   const [error, setError] = useState(null)
-
+  
   let {puppyIndex} = useParams()
   let puppy = puppies[puppyIndex]
   let navigate = useNavigate()
-
+  let puppyNum = puppyIndex
+  
   async function deletePuppy(event){
     event.preventDefault()
     try {
@@ -23,6 +25,7 @@ export default function Puppy({puppies, fetchPuppies}){
       setError(error.message)
     }
   }
+
 
   console.log(puppy)
 
@@ -43,8 +46,6 @@ export default function Puppy({puppies, fetchPuppies}){
                     X
             </button>
           </div>
-          <button className="nextPrevBtns">{"<"}</button>
-          <button className="nextPrevBtns">{">"}</button>
         </>
       :
           <p>Please choose valid ID</p>

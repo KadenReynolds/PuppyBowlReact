@@ -6,6 +6,26 @@
   text-align: center;
 }
 
+.navLinks{
+  background-color: rgb(3, 3, 58);
+  color: white;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+  transition: .5s;
+}
+
+.navLinks:hover {
+  background-color: rgb(5, 5, 88);
+  color: white;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+  transition: .5s;
+}
+
 h1{
   font-weight: lighter;
 }
